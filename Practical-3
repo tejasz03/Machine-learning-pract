@@ -1,0 +1,33 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Sample Data (You can also load CSV data here)
+# X should be 2D, so we reshape it
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+y = np.array([3, 4, 2, 5, 6])
+
+# Model initialization
+model = LinearRegression()
+
+# Fit the model
+model.fit(X, y)
+
+# Predicting values
+y_pred = model.predict(X)
+
+# Get slope and intercept
+slope = model.coef_[0]
+intercept = model.intercept_
+
+print(f"Regression Line: y = {slope:.2f}x + {intercept:.2f}")
+
+# 🖼️ Plotting
+plt.scatter(X, y, color='blue', label='Original Data')       # Data points
+plt.plot(X, y_pred, color='red', linewidth=2, label='Regression Line')  # Line
+plt.xlabel('X')
+plt.ylabel('y')
+plt.title('Linear Regression Example')
+plt.legend()
+plt.grid(True)
+plt.show()
