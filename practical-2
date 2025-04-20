@@ -1,0 +1,59 @@
+import numpy as np
+import pandas as pd
+from scipy import stats
+
+# Sample data
+data = np.array([10, 20, 30, 20, 40, 30, 20, 50])
+
+print("=== 📊 Basic Statistics ===")
+print("Data:", data)
+
+# Mean
+mean_val = np.mean(data)
+print("Mean:", mean_val)
+
+# Median
+median_val = np.median(data)
+print("Median:", median_val)
+
+# Mode
+mode_val = stats.mode(data, keepdims=True)
+print("Mode:", mode_val.mode[0], " (Count:", mode_val.count[0], ")")
+
+# Variance
+variance_val = np.var(data)
+print("Variance:", variance_val)
+
+# Standard Deviation
+std_dev_val = np.std(data)
+print("Standard Deviation:", std_dev_val)
+
+print("\n=== 🔄 Reshaping Arrays ===")
+arr1d = np.arange(1, 13)
+print("Original 1D:", arr1d)
+
+arr2d = arr1d.reshape(3, 4)
+print("Reshaped to 2D:\n", arr2d)
+
+arr3d = arr1d.reshape(2, 2, 3)
+print("Reshaped to 3D:\n", arr3d)
+
+print("\n=== 🔍 Filtering (Conditional Selection) ===")
+print("Original Array:", data)
+filtered = data[data > 25]
+print("Values greater than 25:", filtered)
+
+print("\n=== 🔗 Merging Arrays ===")
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+merged_h = np.hstack((a, b))
+merged_v = np.vstack((a, b))
+
+print("Horizontal Merge:", merged_h)
+print("Vertical Merge:\n", merged_v)
+
+print("\n=== 📈 Min-Max Normalization ===")
+# Formula: (x - min) / (max - min)
+normalized = (data - np.min(data)) / (np.max(data) - np.min(data))
+print("Normalized Data:", normalized)
