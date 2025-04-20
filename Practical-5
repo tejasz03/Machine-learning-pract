@@ -1,0 +1,34 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestRegressor
+
+# Sample training data (X = inputs, y = outputs)
+X = np.array([5, 10, 15, 25, 30, 35, 40, 60, 70, 90]).reshape(-1, 1)
+y = np.array([15, 30, 45, 50, 60, 70, 80, 90, 100, 110])  # dummy outputs
+
+# Initialize and train Random Forest Regressor
+model = RandomForestRegressor(n_estimators=100, random_state=0)
+model.fit(X, y)
+
+# Predicting values for 20, 50, 100
+test_values = np.array([20, 50, 100]).reshape(-1, 1)
+predictions = model.predict(test_values)
+
+# Print results
+for inp, pred in zip(test_values.flatten(), predictions):
+    print(f"Predicted output for {inp} is: {pred:.2f}")
+
+# Optional: Plotting the result
+X_grid = np.arange(min(X), max(X) + 1, 1).reshape(-1, 1)
+y_pred_grid = model.predict(X_grid)
+
+plt.figure(figsize=(8, 5))
+plt.scatter(X, y, color='blue', label='Training Data')
+plt.plot(X_grid, y_pred_grid, color='green', label='Random Forest Prediction')
+plt.scatter(test_values, predictions, color='red', marker='X', s=100, label='Predictions')
+plt.title('Random Forest Regression')
+plt.xlabel('Input')
+plt.ylabel('Output')
+plt.legend()
+plt.grid(True)
+plt.show()
