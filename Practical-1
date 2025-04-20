@@ -1,0 +1,65 @@
+# 🧠 Basic Math Library
+import math
+
+print("=== Math Library ===")
+a, b = 16, 25
+print("Square Root:", math.sqrt(a))
+print("Integer Square Root:", math.isqrt(b))
+print("GCD of 12 and 18:", math.gcd(12, 18))
+print("Floor of 3.9:", math.floor(3.9))
+print("Ceil of 3.1:", math.ceil(3.1))
+print("\n")
+
+# 📊 Statistics Library
+import statistics
+
+print("=== Statistics Library ===")
+data = [10, 20, 20, 30, 40]
+print("Mean:", statistics.mean(data))
+print("Median:", statistics.median(data))
+print("Mode:", statistics.mode(data))
+print("\n")
+
+# 🔢 Numpy Operations
+import numpy as np
+
+print("=== NumPy Basic Operations ===")
+arr = np.array([1, 5, 3, 7, 2])
+print("Original Array:", arr)
+print("Sorted:", np.sort(arr))
+print("Sum:", np.sum(arr))
+print("Mean:", np.mean(arr))
+print("Max:", np.max(arr))
+print("Min:", np.min(arr))
+print("\n")
+
+# 🧱 Reshaping Arrays
+print("=== Reshape 1D to 2D and 3D ===")
+arr1d = np.array([1, 2, 3, 4, 5, 6])
+arr2d = arr1d.reshape(2, 3)
+arr3d = arr1d.reshape(1, 2, 3)
+
+print("1D Array:", arr1d)
+print("2D Array:\n", arr2d)
+print("3D Array:\n", arr3d)
+print("\n")
+
+# 🔍 Eigenvalues & Eigenvectors
+print("=== Eigenvalues and Eigenvectors ===")
+A = np.array([[4, 2], [1, 3]])
+eigvals, eigvecs = np.linalg.eig(A)
+print("Matrix A:\n", A)
+print("Eigenvalues:", eigvals)
+print("Eigenvectors:\n", eigvecs)
+print("\n")
+
+# 🧮 Determinant using NumPy & SciPy
+from scipy import linalg
+
+print("=== Determinant of Matrix ===")
+mat = np.array([[6, 1], [4, -2]])
+det_numpy = np.linalg.det(mat)
+det_scipy = linalg.det(mat)
+print("Matrix:\n", mat)
+print("Determinant (NumPy):", det_numpy)
+print("Determinant (SciPy):", det_scipy)
